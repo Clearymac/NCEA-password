@@ -5,9 +5,12 @@ password = ""
 # Character list
 CHAR_LIST = """abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=[]{};:',<.>|`~"""
 
-#password size
+#generate password size
 char_amount = random.randint(8, 20)
+print("char_amount = ", char_amount)
 
+
+#letter variables (make this ugly shi better)
 bruh1 = ""
 bruh2 = ""
 bruh3 = ""
@@ -28,13 +31,15 @@ bruh17 = ""
 bruh18 = ""
 bruh19 = ""
 bruh20 = ""
+bruh21 = ""
 
-
+#for loop uses generated length and generates each letter
 for length in range(char_amount):
 
     #generates random number for getting character
     ran_char = random.randint(0,89)
 
+#var for temporarily storing random char from char list before being stored in individual vars
     bruh = CHAR_LIST[ran_char]
     
     if length == 0:
@@ -79,5 +84,26 @@ for length in range(char_amount):
     elif length == 13:
         bruh14 = (bruh)
 
-password = (bruh1 + bruh2 + bruh3 + bruh4 + bruh5)
+    elif length == 14:
+        bruh15 = (bruh)
+
+    elif length == 15:
+        bruh16 == (bruh)
+
+    elif length == 16:
+        bruh17 == (bruh)
+
+    elif length == 17:
+        bruh18 == (bruh)
+
+    elif length == 18:
+        bruh19 = (bruh)
+
+    elif length == 19:
+        bruh20 = (bruh)
+
+    elif length == 20:
+        bruh21 == (bruh)
+
+password = (bruh1 + bruh2 + bruh3 + bruh4 + bruh5 + bruh6 + bruh7 + bruh8 + bruh9 + bruh10 + bruh11 + bruh12 + bruh13 + bruh14 + bruh15 + bruh16 + bruh17 + bruh18 + bruh19 + bruh20 + bruh21)
 print(password)
