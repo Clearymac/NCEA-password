@@ -1,6 +1,12 @@
 import random
+import csv
+
 
 password = ""
+
+use = input("What is the password for? ")
+email = input("What email is attached? ")
+extra = input("is there any more info to add? ")
 
 # Character list
 CHAR_LIST = """abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=[]{};:',<.>|`~"""
@@ -107,3 +113,9 @@ for length in range(char_amount):
 
 password = (bruh1 + bruh2 + bruh3 + bruh4 + bruh5 + bruh6 + bruh7 + bruh8 + bruh9 + bruh10 + bruh11 + bruh12 + bruh13 + bruh14 + bruh15 + bruh16 + bruh17 + bruh18 + bruh19 + bruh20 + bruh21)
 print(password)
+
+
+with open('Password_sheet.csv', 'w', newline='') as password_csv:
+    csv_writer = csv.writer(password_csv, delimiter=' || ')
+
+    csv_writer.csvw
