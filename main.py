@@ -116,6 +116,7 @@ print(password)
 
 
 with open('Password_sheet.csv', 'w', newline='') as password_csv:
-    csv_writer = csv.writer(password_csv, delimiter=' || ')
+    csv_writer = csv.writer(password_csv, delimiter='\t')
 
-    csv_writer.csvw
+    csv_writer.writerow([use, email, password])
+
