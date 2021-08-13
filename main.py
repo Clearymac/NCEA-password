@@ -1,6 +1,7 @@
+py -m pip install "SomeProject"
 import random
 import csv
-import clipboard
+import pyperclip as pc
 
 password = ""
 
@@ -120,4 +121,4 @@ with open('Password_sheet.csv', 'a', newline='') as password_csv:
 
     csv_writer.writerow(["Account: " , use, "Email: ", email, "Password: " , password])
 
-clipboard.copy(password)
+pc.copy(password)
