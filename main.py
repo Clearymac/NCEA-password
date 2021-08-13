@@ -115,8 +115,9 @@ password = (bruh1 + bruh2 + bruh3 + bruh4 + bruh5 + bruh6 + bruh7 + bruh8 + bruh
 print(password)
 
 
-with open('Password_sheet.csv', 'w', newline='') as password_csv:
+with open('Password_sheet.csv', 'a', newline='') as password_csv:
     csv_writer = csv.writer(password_csv, delimiter='\t')
 
-    csv_writer.writerow([use, email, password])
+    csv_writer.writerow(["Account: " , use, "Email: ", email, "Password: " , password])
+
 
