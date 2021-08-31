@@ -33,26 +33,27 @@ def regular():
             ran_char = random.randint(0, 31)
             character = SPECIAL[ran_char]
 
-        # variable for temporarily storing the random char before adding it to "fnl_password"
+            # variable for temporarily storing the random char before adding it to "fnl_password"
         password.append(character)
-    fnl_password = ''.join(str(e) for e in password)
+        fnl_password = ''.join(str(e) for e in password)
     print(fnl_password)
 
 
 
 def numbers():
     password = []
+    character = []
     # generate password size
     char_amount = random.randint(8, 20)
     print("char_amount = {}".format(char_amount))
     # for loop uses generated length and generates each letter
     for length in range(char_amount):
-            ran_char = random.randint(0, 9)
-            character = NUMS[ran_char]
+        ran_char = random.randint(0, 9)
+        character = NUMS[ran_char]
 
-        # variable for temporarily storing the random char before adding it to "fnl_password"
+
         password.append(character)
-    fnl_password = ''.join(str(e) for e in password)
+        fnl_password = ''.join(str(e) for e in password)
     print(fnl_password)
 
 
@@ -72,9 +73,9 @@ def letters():
             ran_char = random.randint(0, 25)
             character = LOWER[ran_char]
 
-        # variable for temporarily storing the random char before adding it to "fnl_password"
+            # variable for temporarily storing the random char before adding it to "fnl_password"
         password.append(character)
-    fnl_password = ''.join(str(e) for e in password)
+        fnl_password = ''.join(str(e) for e in password)
     print(fnl_password)
 
 
@@ -85,12 +86,12 @@ def special():
     print("char_amount = {}".format(char_amount))
     # for loop uses generated length and generates each letter
     for length in range(char_amount):
-            ran_char = random.randint(0, 31)
-            character = SPECIAL[ran_char]
+        ran_char = random.randint(0, 31)
+        character = SPECIAL[ran_char]
 
         # variable for temporarily storing the random char before adding it to "fnl_password"
         password.append(character)
-    fnl_password = ''.join(str(e) for e in password)
+        fnl_password = ''.join(str(e) for e in password)
     print(fnl_password)
 
 
@@ -117,7 +118,7 @@ def uppercase():
 
         # variable for temporarily storing the random char before adding it to "fnl_password"
         password.append(character)
-    fnl_password = ''.join(str(e) for e in password)
+        fnl_password = ''.join(str(e) for e in password)
     print(fnl_password)
 
 
@@ -144,7 +145,7 @@ def lowercase():
 
         # variable for temporarily storing the random char before adding it to "fnl_password"
         password.append(character)
-    fnl_password = ''.join(str(e) for e in password)
+        fnl_password = ''.join(str(e) for e in password)
     print(fnl_password)
 
 
@@ -188,3 +189,20 @@ while bruh == True:
         bruh = False
 
 
+print("(1)regular ||| (2)Numbers only ||| (3) letters only ||| (4)Special Characters only ||| (5)Uppercase ||| (6)Lowercase (e)exit")
+pass_choice = input("what password would you like to generate: ")
+
+if pass_choice == "1":
+    regular()
+if pass_choice == "2":
+    numbers()
+if pass_choice == "3":
+    letters()
+if pass_choice == "4":
+    special()
+if pass_choice == "5":
+    uppercase()
+if pass_choice == "6":
+    lowercase()
+if pass_choice == "e":
+    exit()
