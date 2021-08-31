@@ -6,7 +6,13 @@ import csv
 NUMS = "1234567890"
 UPPER = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 LOWER = "abcdefghijklmnopqrstuvwxyz"
-SPECIAL = """  !@#$%^&*()_-+={[}]|\:;"'?/>.<,~` """
+SPECIAL = """!@#$%^&*()_-+={[}]|\:;"'?/>.<,~`"""
+
+
+
+#opens csv file and writes a new line for every request to save a password and extra information
+with open('Password_sheet.csv', 'a', newline='') as password_csv:
+    csv_writer = csv.writer(password_csv, delimiter='\t')
 
 #funcion that stores the code for generating "regular" password
 def regular():
@@ -39,10 +45,11 @@ def regular():
     print(fnl_password)
 
 
+    csv_writer.writerow(["Account: " , use, "Email: ", email, "Password: " , fnl_password])
+
 
 def numbers():
     password = []
-    character = []
     # generate password size
     char_amount = random.randint(8, 20)
     print("char_amount = {}".format(char_amount))
@@ -188,6 +195,8 @@ while bruh == True:
         print("...")
         bruh = False
 
+save_csv = input("would you like to save the password and other ")
+
 
 print("(1)regular ||| (2)Numbers only ||| (3) letters only ||| (4)Special Characters only ||| (5)Uppercase ||| (6)Lowercase (e)exit")
 pass_choice = input("what password would you like to generate: ")
@@ -206,3 +215,9 @@ if pass_choice == "6":
     lowercase()
 if pass_choice == "e":
     exit()
+
+#opens csv file and writes a new line for every request to save a password and extra information
+with open('Password_sheet.csv', 'a', newline='') as password_csv:
+    csv_writer = csv.writer(password_csv, delimiter='\t')
+
+    csv_writer.writerow(["Account: " , use, "Email: ", email, "Password: " , fnl_password])
