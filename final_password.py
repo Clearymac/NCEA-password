@@ -230,3 +230,4 @@ if save == "1":
         csv_writer.writerow(["Account: ", use, "Email: ", email, "Password: ", fnl_password])
 
 
+pyperclip.copy(fnl_password)
