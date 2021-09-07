@@ -8,11 +8,8 @@ UPPER = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 LOWER = "abcdefghijklmnopqrstuvwxyz"
 SPECIAL = """!@#$%^&*()_-+={[}]|\:;"'?/>.<,~`"""
 
+fnl_password = []
 
-
-#opens csv file and writes a new line for every request to save a password and extra information
-with open('Password_sheet.csv', 'a', newline='') as password_csv:
-    csv_writer = csv.writer(password_csv, delimiter='\t')
 
 #funcion that stores the code for generating "regular" password
 def regular():
@@ -41,11 +38,11 @@ def regular():
 
             # variable for temporarily storing the random char before adding it to "fnl_password"
         password.append(character)
+        global fnl_password
         fnl_password = ''.join(str(e) for e in password)
     print(fnl_password)
 
 
-    csv_writer.writerow(["Account: " , use, "Email: ", email, "Password: " , fnl_password])
 
 
 def numbers():
@@ -60,6 +57,7 @@ def numbers():
 
 
         password.append(character)
+        global fnl_password
         fnl_password = ''.join(str(e) for e in password)
     print(fnl_password)
 
@@ -82,6 +80,7 @@ def letters():
 
             # variable for temporarily storing the random char before adding it to "fnl_password"
         password.append(character)
+        global fnl_password
         fnl_password = ''.join(str(e) for e in password)
     print(fnl_password)
 
@@ -98,6 +97,7 @@ def special():
 
         # variable for temporarily storing the random char before adding it to "fnl_password"
         password.append(character)
+        global fnl_password
         fnl_password = ''.join(str(e) for e in password)
     print(fnl_password)
 
@@ -125,6 +125,7 @@ def uppercase():
 
         # variable for temporarily storing the random char before adding it to "fnl_password"
         password.append(character)
+        global fnl_password
         fnl_password = ''.join(str(e) for e in password)
     print(fnl_password)
 
@@ -152,6 +153,7 @@ def lowercase():
 
         # variable for temporarily storing the random char before adding it to "fnl_password"
         password.append(character)
+        global fnl_password
         fnl_password = ''.join(str(e) for e in password)
     print(fnl_password)
 
@@ -195,8 +197,6 @@ while bruh == True:
         print("...")
         bruh = False
 
-save_csv = input("would you like to save the password and other ")
-
 
 print("(1)regular ||| (2)Numbers only ||| (3) letters only ||| (4)Special Characters only ||| (5)Uppercase ||| (6)Lowercase (e)exit")
 pass_choice = input("what password would you like to generate: ")
@@ -216,8 +216,17 @@ if pass_choice == "6":
 if pass_choice == "e":
     exit()
 
-#opens csv file and writes a new line for every request to save a password and extra information
-with open('Password_sheet.csv', 'a', newline='') as password_csv:
-    csv_writer = csv.writer(password_csv, delimiter='\t')
 
-    csv_writer.writerow(["Account: " , use, "Email: ", email, "Password: " , fnl_password])
+save = input("Would you like to save your password to a seperate CSV file (1)yes (2)no: ")
+if save == "1":
+    use = input("What is the password for? ")
+    email = input("What is the attached email")
+
+
+    # opens csv file and writes a new line for every request to save a password and extra information
+    with open('Password_test.csv', 'a', newline='') as password_csv:
+        csv_writer = csv.writer(password_csv, delimiter='\t')
+
+        csv_writer.writerow(["Account: ", use, "Email: ", email, "Password: ", fnl_password])
+
+
