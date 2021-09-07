@@ -38,6 +38,7 @@ def regular():
 
             # variable for temporarily storing the random char before adding it to "fnl_password"
         password.append(character)
+        # lets program use 'fnl_password' outside func
         global fnl_password
         fnl_password = ''.join(str(e) for e in password)
     print(fnl_password)
@@ -55,8 +56,8 @@ def numbers():
         ran_char = random.randint(0, 9)
         character = NUMS[ran_char]
 
-
         password.append(character)
+        # lets program use 'fnl_password' outside func
         global fnl_password
         fnl_password = ''.join(str(e) for e in password)
     print(fnl_password)
@@ -80,6 +81,7 @@ def letters():
 
             # variable for temporarily storing the random char before adding it to "fnl_password"
         password.append(character)
+        # lets program use 'fnl_password' outside func
         global fnl_password
         fnl_password = ''.join(str(e) for e in password)
     print(fnl_password)
@@ -97,6 +99,7 @@ def special():
 
         # variable for temporarily storing the random char before adding it to "fnl_password"
         password.append(character)
+        # lets program use 'fnl_password' outside func
         global fnl_password
         fnl_password = ''.join(str(e) for e in password)
     print(fnl_password)
@@ -125,6 +128,7 @@ def uppercase():
 
         # variable for temporarily storing the random char before adding it to "fnl_password"
         password.append(character)
+        # lets program use 'fnl_password' outside func
         global fnl_password
         fnl_password = ''.join(str(e) for e in password)
     print(fnl_password)
@@ -153,6 +157,7 @@ def lowercase():
 
         # variable for temporarily storing the random char before adding it to "fnl_password"
         password.append(character)
+        # lets program use 'fnl_password' outside func
         global fnl_password
         fnl_password = ''.join(str(e) for e in password)
     print(fnl_password)
@@ -167,11 +172,11 @@ special_char_info = "only uses special characters on the standard US keyboard fo
 uppercase_info = "similar to 'regular' but every letter will only be uppercase\n\n\n"
 lowercase_info = "similar to 'regular' but every letter will only be uppercase\n\n\n"
 
-
-bruh = True
+# keeps requesting info in a loop till user wants to move on
+info_screen = True
 #intro user to the password generator and show options for type of password and possible info
 print("Password Generator: \n\n\n\n\n")
-while bruh == True:
+while info_screen == True:
 
     print("""you have multiple options for the password you want generated...
     (1)regular ||| (2)Numbers only ||| (3) letters only ||| (4)Special Characters only ||| (5)Uppercase ||| (6)Lowercase
@@ -195,9 +200,9 @@ while bruh == True:
         print(lowercase_info)
     elif pswrd_info == "e":
         print("...")
-        bruh = False
+        info_screen = False
 
-
+# asks user to choose what password to generate then calls requested funtion to generate password
 print("(1)regular ||| (2)Numbers only ||| (3) letters only ||| (4)Special Characters only ||| (5)Uppercase ||| (6)Lowercase (e)exit")
 pass_choice = input("what password would you like to generate: ")
 
@@ -216,7 +221,7 @@ if pass_choice == "6":
 if pass_choice == "e":
     exit()
 
-
+# asks user if they would like to save along with inputs for extra info to save
 save = input("Would you like to save your password to a seperate CSV file (1)yes (2)no: ")
 if save == "1":
     use = input("What is the password for? ")
@@ -226,8 +231,11 @@ if save == "1":
     # opens csv file and writes a new line for every request to save a password and extra information
     with open('Password_test.csv', 'a', newline='') as password_csv:
         csv_writer = csv.writer(password_csv, delimiter='\t')
-
+        # saves use, email and password in row
         csv_writer.writerow(["Account: ", use, "Email: ", email, "Password: ", fnl_password])
 
-
+elif save == "2":
+    1
+# copies password to PC clip board
 pyperclip.copy(fnl_password)
+print("The password has been copied to clipboard")
