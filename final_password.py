@@ -9,7 +9,8 @@ LOWER = "abcdefghijklmnopqrstuvwxyz"
 SPECIAL = """!@#$%^&*()_-+={[}]|\:;"'?/>.<,~`"""
 
 fnl_password = []
-
+pass_min = []
+pass_max = []
 
 #funcion that stores the code for generating "regular" password
 def regular():
@@ -185,6 +186,7 @@ while info_screen == True:
     # input for if user would like to learn about what a specific password type does
     pswrd_info = input("...")
 
+
     # displays password type info on user request
     if pswrd_info == "1":
         print(regular_info)
@@ -205,6 +207,9 @@ while info_screen == True:
 # asks user to choose what password to generate then calls requested funtion to generate password
 print("(1)regular ||| (2)Numbers only ||| (3) letters only ||| (4)Special Characters only ||| (5)Uppercase ||| (6)Lowercase (e)exit")
 pass_choice = input("what password would you like to generate: ")
+
+pass_min = int(input("minimum character amount: "))
+pass_max = int(input("maximum character amount: "))
 
 if pass_choice == "1":
     regular()
