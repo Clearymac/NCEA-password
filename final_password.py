@@ -5,17 +5,18 @@ import csv
 # All characters that can be used in the password
 NUMS = "1234567890"
 UPPER = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-LOWER = "abcdefghijklmnopqrstuvwxyz"
+LOWER = "abcde fghijklmnopqrstuvwxyz"
 SPECIAL = """!@#$%^&*()_-+={[}]|\:;"'?/>.<,~`"""
 
 fnl_password = []
-
+min_amt = []
+max_amt = []
 
 #funcion that stores the code for generating "regular" password
 def regular():
     password = []
     # generate password size
-    char_amount = random.randint(8, 20)
+    char_amount = random.randint(min_amt, max_amt)
     print("char_amount = {}".format(char_amount))
     # for loop uses generated length and generates each letter
     for length in range(char_amount):
@@ -36,7 +37,7 @@ def regular():
             ran_char = random.randint(0, 31)
             character = SPECIAL[ran_char]
 
-            # variable for temporarily storing the random char before adding it to "fnl_password"
+            # variable for t emporarily storing the random char before adding it to "fnl_password"
         password.append(character)
         # lets program use 'fnl_password' outside func
         global fnl_password
@@ -48,9 +49,9 @@ def regular():
 
 def numbers():
     password = []
-    # generate password size
-    char_amount = random.randint(8, 20)
-    print("char_amount = {}".format(char_amount))
+    # generate password si ze
+    char_amount = random.randint(min_amt, max_amt)
+    print("char_amount  = {}".format(char_amount))
     # for loop uses generated length and generates each letter
     for length in range(char_amount):
         ran_char = random.randint(0, 9)
@@ -66,7 +67,7 @@ def numbers():
 def letters():
     password = []
     # generate password size
-    char_amount = random.randint(8, 20)
+    char_amount = random.randint(min_amt, max_amt)
     print("char_amount = {}".format(char_amount))
     # for loop uses generated length and generates each letter
     for length in range(char_amount):
@@ -90,7 +91,7 @@ def letters():
 def special():
     password = []
     # generate password size
-    char_amount = random.randint(8, 20)
+    char_amount = random.randint(min_amt, max_amt)
     print("char_amount = {}".format(char_amount))
     # for loop uses generated length and generates each letter
     for length in range(char_amount):
@@ -108,7 +109,7 @@ def special():
 def uppercase():
     password = []
     # generate password size
-    char_amount = random.randint(8, 20)
+    char_amount = random.randint(min_amt, max_amt)
     print("char_amount = {}".format(char_amount))
     # for loop uses generated length and generates each letter
     for length in range(char_amount):
@@ -127,7 +128,7 @@ def uppercase():
             character = SPECIAL[ran_char]
 
         # variable for temporarily storing the random char before adding it to "fnl_password"
-        password.append(character)
+        password.append( character)
         # lets program use 'fnl_password' outside func
         global fnl_password
         fnl_password = ''.join(str(e) for e in password)
@@ -137,7 +138,7 @@ def uppercase():
 def lowercase():
     password = []
     # generate password size
-    char_amount = random.randint(8, 20)
+    char_amount = random.randint(min_amt, max_amt)
     print("char_amount = {}".format(char_amount))
     # for loop uses generated length and generates each letter
     for length in range(char_amount):
@@ -167,7 +168,7 @@ def lowercase():
 # info on types of passwords
 regular_info = "'Regular' uses every main character on a standard US keyboard and randomly picks from any of these chars to make the password\n\n\n"
 numbers_only_info = "Only uses numbers in the password and randomly chooses the numbers to be added to the password\n\n\n"
-letter_only_info = "only use letter(upper and lower) in the password and randomly chooses the letter to be added to the password\n\n\n"
+letter_only_info = "only use letter(upper and lower ) in the password and randomly chooses the letter to be added to the password\n\n\n"
 special_char_info = "only uses special characters on the standard US keyboard for the password... e.g. !@#$%^&*()\n\n\n"
 uppercase_info = "similar to 'regular' but every letter will only be uppercase\n\n\n"
 lowercase_info = "similar to 'regular' but every letter will only be uppercase\n\n\n"
@@ -180,7 +181,7 @@ while info_screen == True:
 
     print("""you have multiple options for the password you want generated...
     (1)regular ||| (2)Numbers only ||| (3) letters only ||| (4)Special Characters only ||| (5)Uppercase ||| (6)Lowercase
-    For information on what these do type the number next to the password type you would like to learn about...
+    For  information on what these do type the number next to the password type you would like to learn about...
     if wanting to continue press 'e' """)
     # input for if user would like to learn about what a specific password type does
     pswrd_info = input("...")
@@ -191,7 +192,7 @@ while info_screen == True:
     elif pswrd_info ==  "2":
         print(numbers_only_info)
     elif pswrd_info == "3":
-        print(letter_only_info)
+         print(letter_only_info)
     elif pswrd_info == "4":
         print(special_char_info)
     elif pswrd_info == "5":
@@ -201,6 +202,19 @@ while info_screen == True:
     elif pswrd_info == "e":
         print("...")
         info_screen = False
+
+minmax = True
+
+while minmax == True:
+    # asks user for min and max number the password should be
+    print("What is the minimum and maximum number the password should be?")
+    min_amt = int(input("min: "))
+    max_amt = int(input("max:" ))
+    if min_amt > 0 and min_amt < max_amt:
+        minmax = False
+    elif min_amt < 0 or min_amt > max_amt:
+        print("The min amount is less than 0 or more than max amount. \n re-enter the values")
+
 
 # asks user to choose what password to generate then calls requested funtion to generate password
 print("(1)regular ||| (2)Numbers only ||| (3) letters only ||| (4)Special Characters only ||| (5)Uppercase ||| (6)Lowercase (e)exit")
