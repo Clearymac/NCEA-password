@@ -16,7 +16,7 @@ pass_max = []
 def regular():
     password = []
     # generate password size
-    char_amount = random.randint(8, 20)
+    char_amount = random.randint(pass_min, pass_max)
     print("char_amount = {}".format(char_amount))
     # for loop uses generated length and generates each letter
     for length in range(char_amount):
@@ -50,7 +50,7 @@ def regular():
 def numbers():
     password = []
     # generate password size
-    char_amount = random.randint(8, 20)
+    char_amount = random.randint(pass_min, pass_max)
     print("char_amount = {}".format(char_amount))
     # for loop uses generated length and generates each letter
     for length in range(char_amount):
@@ -67,7 +67,7 @@ def numbers():
 def letters():
     password = []
     # generate password size
-    char_amount = random.randint(8, 20)
+    char_amount = random.randint(pass_min, pass_max)
     print("char_amount = {}".format(char_amount))
     # for loop uses generated length and generates each letter
     for length in range(char_amount):
@@ -91,7 +91,7 @@ def letters():
 def special():
     password = []
     # generate password size
-    char_amount = random.randint(8, 20)
+    char_amount = random.randint(pass_min, pass_max)
     print("char_amount = {}".format(char_amount))
     # for loop uses generated length and generates each letter
     for length in range(char_amount):
@@ -109,7 +109,7 @@ def special():
 def uppercase():
     password = []
     # generate password size
-    char_amount = random.randint(8, 20)
+    char_amount = random.randint(pass_min, pass_max)
     print("char_amount = {}".format(char_amount))
     # for loop uses generated length and generates each letter
     for length in range(char_amount):
@@ -138,7 +138,7 @@ def uppercase():
 def lowercase():
     password = []
     # generate password size
-    char_amount = random.randint(8, 20)
+    char_amount = random.randint(pass_min, pass_max)
     print("char_amount = {}".format(char_amount))
     # for loop uses generated length and generates each letter
     for length in range(char_amount):
@@ -208,8 +208,14 @@ while info_screen == True:
 print("(1)regular ||| (2)Numbers only ||| (3) letters only ||| (4)Special Characters only ||| (5)Uppercase ||| (6)Lowercase (e)exit")
 pass_choice = input("what password would you like to generate: ")
 
-pass_min = int(input("minimum character amount: "))
-pass_max = int(input("maximum character amount: "))
+min_max = True
+while min_max == True:
+    pass_min = int(input("minimum character amount: "))
+    pass_max = int(input("maximum character amount: "))
+    if pass_min >= 0 and pass_min <= pass_max:
+        min_max = False
+
+
 
 if pass_choice == "1":
     regular()
