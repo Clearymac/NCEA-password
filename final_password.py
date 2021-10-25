@@ -180,8 +180,9 @@ print("Password Generator: \n\n\n\n\n")
 while info_screen == True:
 
     print("""you have multiple options for the password you want generated...
+    
     (1)regular ||| (2)Numbers only ||| (3) letters only ||| (4)Special Characters only ||| (5)Uppercase ||| (6)Lowercase
-    For information on what these do type the number next to the password type you would like to learn about...
+    For information on what these do, type the number next to the password type you would like to learn about...
     if wanting to continue press 'e' """)
     # input for if user would like to learn about what a specific password type does
     pswrd_info = input("...")
@@ -204,16 +205,24 @@ while info_screen == True:
         print("...")
         info_screen = False
 
+
 # asks user to choose what password to generate then calls requested funtion to generate password
 print("(1)regular ||| (2)Numbers only ||| (3) letters only ||| (4)Special Characters only ||| (5)Uppercase ||| (6)Lowercase (e)exit")
 pass_choice = input("what password would you like to generate: ")
 
 min_max = True
 while min_max == True:
-    pass_min = int(input("minimum character amount: "))
-    pass_max = int(input("maximum character amount: "))
-    if pass_min >= 0 and pass_min <= pass_max:
-        min_max = False
+   max_high = "y"
+   pass_min = int(input("minimum character amount: "))
+   pass_max = int(input("maximum character amount: "))
+   if pass_min < 0 or pass_min > pass_max:
+       print("invalid min and max... please re-enter correctly\n\n")
+   if pass_max > 30:
+       max_high = input("{} is what you entered\n\nAre you sure you want to enter a max amount this high? (y)(n) : ".format(pass_max))
+
+   if pass_min >= 0 and pass_min <= pass_max and max_high == "y":
+       min_max = False
+
 
 
 
