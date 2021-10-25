@@ -8,7 +8,9 @@ UPPER = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 LOWER = "abcdefghijklmnopqrstuvwxyz"
 SPECIAL = """!@#$%^&*()_-+={[}]|\:;"'?/>.<,~`"""
 
+#variable used to store the password
 fnl_password = []
+#variables for storing the min/max password char amount
 pass_min = []
 pass_max = []
 
@@ -173,12 +175,16 @@ special_char_info = "only uses special characters on the standard US keyboard fo
 uppercase_info = "similar to 'regular' but every letter will only be uppercase\n\n\n"
 lowercase_info = "similar to 'regular' but every letter will only be uppercase\n\n\n"
 
+
+
+
 # keeps requesting info in a loop till user wants to move on
 info_screen = True
 #intro user to the password generator and show options for type of password and possible info
 print("Password Generator: \n\n\n\n\n")
 while info_screen == True:
 
+    
     print("""you have multiple options for the password you want generated...
     
     (1)regular ||| (2)Numbers only ||| (3) letters only ||| (4)Special Characters only ||| (5)Uppercase ||| (6)Lowercase
@@ -206,19 +212,27 @@ while info_screen == True:
         info_screen = False
 
 
-# asks user to choose what password to generate then calls requested funtion to generate password
+        
+        
+#asks user to choose what password to generate then calls requested funtion to generate password
 print("(1)regular ||| (2)Numbers only ||| (3) letters only ||| (4)Special Characters only ||| (5)Uppercase ||| (6)Lowercase (e)exit")
 pass_choice = input("what password would you like to generate: ")
 
+
+#for user to input min/max password char amount
 min_max = True
 while min_max == True:
    max_high = "y"
    pass_min = int(input("minimum character amount: "))
    pass_max = int(input("maximum character amount: "))
+
+   #checks if user has inputted invalid data then displays error message
    if pass_min < 0 or pass_min > pass_max:
        print("invalid min and max... please re-enter correctly\n\n")
+   #checks if user has inputted extremely large num to confirm this was on purpose
    if pass_max > 30:
        max_high = input("{} is what you entered\n\nAre you sure you want to enter a max amount this high? (y)(n) : ".format(pass_max))
+   #checks if nums are valid to break while loop
 
    if pass_min >= 0 and pass_min <= pass_max and max_high == "y":
        min_max = False
