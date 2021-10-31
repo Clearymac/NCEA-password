@@ -20,7 +20,7 @@ def regular():
     # generate password size
     char_amount = random.randint(pass_min, pass_max)
     print("char_amount = {}".format(char_amount))
-    # for loop uses generated length and generates each letter
+    # for loop uses generated length and generates each letter in individual runs
     for length in range(char_amount):
         # to randomly decide which list to get a character from
         chse_list = random.randint(1, 4)
